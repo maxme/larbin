@@ -32,7 +32,7 @@ void initSite () {
   stataddr.sin_family = AF_INET;
 }
 
-/** connect to this addr using connection conn 
+/** connect to this addr using connection conn
  * return the state of the socket
  */
 static char getFds (Connexion *conn, struct in_addr *addr, uint port) {
@@ -309,12 +309,13 @@ void NamedSite::dnsErr () {
 
 /** test if a file can be fetched thanks to the robots.txt */
 bool NamedSite::testRobots(char *file) {
-  uint pos = forbidden.getLength();
-  for (uint i=0; i<pos; i++) {
-    if (robotsMatch(forbidden[i], file))
-      return false;
-  }
   return true;
+  // uint pos = forbidden.getLength();
+  // for (uint i=0; i<pos; i++) {
+  //   if (robotsMatch(forbidden[i], file))
+  //     return false;
+  // }
+  // return true;
 }
 
 /** Delete the old identity of the site */
@@ -380,7 +381,7 @@ void NamedSite::robotsResult (FetchError res) {
     isInFifo = false;
   } else {
     global::dnsSites->put(this);
-  }  
+  }
 }
 
 void NamedSite::transfer (url *u) {
@@ -518,7 +519,7 @@ int IPSite::fetch () {
         delete u;
         global::freeConns->put(conn);
         return fetch();
-      }    
+      }
     }
   }
 }

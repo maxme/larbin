@@ -238,7 +238,7 @@ void global::parseFile (char *file) {
       if (u->isValid()) {
         check(u);
       } else {
-          std::cerr << "the start url " << tok << " is invalid\n";
+        std::cerr << "the start url " << tok << " is invalid\n";
         exit(1);
       }
 	} else if (!strcasecmp(tok, "waitduration")) {
